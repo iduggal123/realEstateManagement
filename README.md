@@ -1,2 +1,2 @@
 # realEstateManagement
-DDA project for property manageement
+DDA project for property management
