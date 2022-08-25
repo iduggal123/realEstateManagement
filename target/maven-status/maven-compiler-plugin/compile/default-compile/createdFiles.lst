@@ -1,0 +1,5 @@
+com/bits/af/AfPropertyBuySellApplication.class
+com/bits/af/entities/Book.class
+com/bits/af/controller/BookController.class
+com/bits/af/pojo/BookingRequest.class
+com/bits/af/repository/BookRepository.class
