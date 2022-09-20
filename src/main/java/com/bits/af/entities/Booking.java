@@ -13,18 +13,18 @@ import lombok.ToString;
 @Table(name = "book")
 @Data
 @ToString
-public class Book {
+public class Booking {
 
 	@Id
 	@Column(name = "bookingID")
-	private int bookingID;
-	
+	private int bookingId;
+
 	@Column(name = "clientID")
-	private int clientID;
-	
+	private int clientId;
+
 	@Column(name = "propertyID")
-	private int propertyID;
-	
+	private int propertyId;
+
 	@Column(name = "Bk_Status")
-	private char bkStatus;
+	private String bookingStatus;
 }

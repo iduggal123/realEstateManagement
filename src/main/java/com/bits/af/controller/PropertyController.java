@@ -14,45 +14,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bits.af.entities.Booking;
-import com.bits.af.pojo.BookingRequest;
-import com.bits.af.repository.BookRepository;
+import com.bits.af.entities.Property;
+import com.bits.af.pojo.PropertyRequest;
+import com.bits.af.repository.PropertyRepository;
 
 @RestController
-@RequestMapping("/bookings")
-public class BookController {
+@RequestMapping("/property")
+public class PropertyController {
 	@Autowired
-	private BookRepository bookRepo;
+	private PropertyRepository propertyRepo;
 
 	@GetMapping(produces = "application/json")
-	public ResponseEntity<List<Booking>> listAll() {
-		List<Booking> bookingList = bookRepo.findAll();
-		System.out.println(bookingList);
-		return ResponseEntity.ok(bookingList);
+	public ResponseEntity<List<Property>> listAll() {
+		List<Property> propertyInfo = propertyRepo.findAll();
+		return ResponseEntity.ok(propertyInfo);
 	}
 
 	@GetMapping(path = "/{id}", produces = "application/json")
-	public ResponseEntity<Booking> listById(@PathVariable Integer id) {
-		Optional<Booking> booking = bookRepo.findById(id);
+	public ResponseEntity<Property> listById(@PathVariable Integer id) {
+		Optional<Property> properties = propertyRepo.findById(id);
 
-		if (booking.isPresent())
-			return ResponseEntity.ok(booking.get());
+		if (properties.isPresent())
+			return ResponseEntity.ok(properties.get());
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-	
 
 	@SuppressWarnings("rawtypes")
 	@PostMapping(produces = "application/json", consumes = "application/json")
-	public ResponseEntity addBooking(@RequestBody BookingRequest bookingRequest) throws Exception {
+	public ResponseEntity addProperty(@RequestBody PropertyRequest request) throws Exception {
 
-		Booking book = new Booking();
-		BeanUtils.copyProperties(bookingRequest, book);
+		Property property = new Property();
+		BeanUtils.copyProperties(request, property);
 		try {
-			book = bookRepo.save(book);
-			return new ResponseEntity<>("Booking successful", HttpStatus.CREATED);
+			property = propertyRepo.save(property);
+			return new ResponseEntity<>("Property is listed.", HttpStatus.CREATED);
 		} catch (Exception e) {
-			throw new Exception("Could not process booking " + e.getMessage());
+			throw new Exception("Could not process the listing" + e.getMessage());
 		}
 	}
 

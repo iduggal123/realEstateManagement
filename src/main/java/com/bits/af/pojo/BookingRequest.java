@@ -5,10 +5,11 @@ import lombok.ToString;
 
 @Data
 @ToString
+@SuppressWarnings("unused")
 public class BookingRequest {
-	
-	private int bookingID;
-	private int clientID;
-	private int propertyID;
-	private char bkStatus;
+
+	private int bookingId;
+	private int clientId;
+	private int propertyId;
+	private String bookingStatus;
 }

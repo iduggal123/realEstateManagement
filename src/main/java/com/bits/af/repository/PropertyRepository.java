@@ -4,8 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.bits.af.entities.Booking;
+import com.bits.af.entities.Customer;
+import com.bits.af.entities.Property;
 
 @Repository
-public interface BookRepository extends JpaRepository<Booking, Integer> {
+public interface PropertyRepository extends JpaRepository<Property, Integer> {
 
 }
