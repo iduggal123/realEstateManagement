@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bits.af.entities.Property;
-import com.bits.af.pojo.PropertyRequest;
 import com.bits.af.repository.PropertyRepository;
 
 @RestController
@@ -41,8 +40,8 @@ public class PropertyController {
 	}
 
 	@SuppressWarnings("rawtypes")
-	@PostMapping(produces = "application/json", consumes = "application/json")
-	public ResponseEntity addProperty(@RequestBody PropertyRequest request) throws Exception {
+	@PostMapping(path = "/register", produces = "application/json", consumes = "application/json")
+	public ResponseEntity addProperty(@RequestBody Property request) throws Exception {
 
 		Property property = new Property();
 		BeanUtils.copyProperties(request, property);
