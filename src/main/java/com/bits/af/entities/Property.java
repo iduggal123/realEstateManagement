@@ -13,6 +13,17 @@ public class Property {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int propertyId;
 
+	@Column(name = "pty_name")
+	private String propertyName;
+
+	public int getPropertyId() {
+		return propertyId;
+	}
+
+	public void setPropertyId(int propertyId) {
+		this.propertyId = propertyId;
+	}
+
 	@Column(name = "pty_town")
 	private String propertyTown;
 
@@ -39,6 +50,36 @@ public class Property {
 
 	@Column(name = "pty_owner")
 	private String propertyOwner;
+
+	@Column(name = "pty_unique")
+	private String propertyUniqueId;
+
+	public String getPropertyName() {
+		return propertyName;
+	}
+
+	public void setPropertyName(String propertyName) {
+		this.propertyName = propertyName;
+	}
+
+	@Column(name = "pty_owner_id")
+	private int propertyOwnerId;
+
+	public int getPropertyOwnerId() {
+		return propertyOwnerId;
+	}
+
+	public void setPropertyOwnerId(int propertyOwnerId) {
+		this.propertyOwnerId = propertyOwnerId;
+	}
+
+	public String getPropertyUniqueId() {
+		return propertyUniqueId;
+	}
+
+	public void setPropertyUniqueId(String propertyUniqueId) {
+		this.propertyUniqueId = propertyUniqueId;
+	}
 
 	public String getPropertyOwner() {
 		return propertyOwner;
