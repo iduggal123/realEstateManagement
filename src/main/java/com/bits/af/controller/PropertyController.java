@@ -1,5 +1,6 @@
 package com.bits.af.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -116,6 +117,7 @@ public class PropertyController {
 	@SuppressWarnings("rawtypes")
 	@PostMapping(path = "/register", produces = "application/json", consumes = "application/json")
 	public ResponseEntity addProperty(@RequestBody Property request) throws Exception {
+		HashMap<String, Object> status = new HashMap<String, Object>();
 		CommonUtils utils = new CommonUtils();
 		String properyUniqueId = "";
 		Property property = new Property();
@@ -126,28 +128,34 @@ public class PropertyController {
 			List<Customer> clientInfo = customerRepo.findByClientId(propertyOwnerId);
 
 			if (clientInfo.size() < 0 || propertyOwnerId < 0) {
-				return new ResponseEntity<>("Could not add property due to invalid user. Please signup!",
-						HttpStatus.UNAUTHORIZED);
+				status.put("error", "Could not add property due to invalid user. Please signup!");
+				status.put("errorCode", 1);
+				return new ResponseEntity<>(status, HttpStatus.OK);
 			} else {
 				properyUniqueId = String.format("%s_%s", request.getPropertyName(),
 						clientInfo.get(0).getClientEmailAddress());
 				properyUniqueId = utils.base64Encode(properyUniqueId);
 				if (propertyRepo.existsByPropertyUniqueId(properyUniqueId)) {
-					return new ResponseEntity<>("Duplicate listing.", HttpStatus.UNAUTHORIZED);
+					status.put("error", "Duplicate listing!");
+					status.put("errorCode", 2);
+					return new ResponseEntity<>(status, HttpStatus.OK);
 				} else {
 					request.setPropertyUniqueId(properyUniqueId);
 					BeanUtils.copyProperties(request, property);
 					try {
 						property = propertyRepo.save(property);
-						return new ResponseEntity<>("Property is listed.", HttpStatus.CREATED);
+						status.put("errorCode", 0);
+						return new ResponseEntity<>(status, HttpStatus.OK);
 					} catch (Exception e) {
 						throw new Exception("Could not process the listing" + e.getMessage());
 					}
 				}
 			}
 		} catch (Exception e) {
-			System.out.println(String.format("Could not login the user due to [%s]", e.getMessage()));
-			return new ResponseEntity<>("We are sorry, bad response!", HttpStatus.BAD_REQUEST);
+			status.put("error", "Could not post the listing.");
+			status.put("errorCode", 4);
+			System.out.println(String.format("Could not post the listing due to [%s]", e.getMessage()));
+			return new ResponseEntity<>(status, HttpStatus.OK);
 
 		}
 	}

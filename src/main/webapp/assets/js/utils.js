@@ -133,3 +133,15 @@ function getCookieValue(a) {
 	var b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
 	return b ? b.pop() : '';
 }
+
+function getUserId() {
+	var t = getCookieValue('userinfo');
+	t = t.split(/####/g);
+	return t[1];
+}
+
+function getUserEmailAddress() {
+	var t = getCookieValue('userinfo');
+	t = t.split(/####/g);
+	return t[0];
+}

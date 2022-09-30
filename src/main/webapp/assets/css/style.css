@@ -1238,7 +1238,7 @@ rotate
 
 @media ( min-width : 992px) {
 	.card-box-a .price-a, .card-box-b .price-a {
-		font-size: 1rem;
+		/* font-size: 1rem; */
 	}
 }
 
@@ -2297,7 +2297,7 @@ ol, ul {
 }
 
 .zf-templateWidth {
-	margin: 7% auto;
+	margin: 9% auto;
 }
 
 .zf-templateWidth {
@@ -2329,12 +2329,12 @@ ol, ul {
 
 .zf-tempContDiv input[type="text"]:hover, .zf-tempContDiv textarea:hover
 	{
-	border: 1px solid rgba(157, 157, 157, 0.75) !important;
+	/* border: 1px solid rgba(157, 157, 157, 0.75) !important; */
 }
 
 .zf-tempContDiv input[type="text"]:focus, .zf-tempContDiv textarea:focus
 	{
-	border: 1px solid rgba(121, 187, 238, 0.75) !important;
+	/* border: 1px solid rgba(121, 187, 238, 0.75) !important; */
 	-webkit-box-shadow: 0 0 5px rgba(82, 168, 236, 0.5) !important;
 	-moz-box-shadow: 0 0 5px rgba(82, 168, 236, 0.5) !important;
 	box-shadow: 0 0 5px rgba(82, 168, 236, 0.5) !important;
@@ -2419,7 +2419,7 @@ ol, ul {
 .zf-subContWrap {
 	padding: 0;
 	margin: 10px;
-	margin-bottom: 0;
+	margin-bottom: 0px;
 }
 
 .zf-tempFrmWrapper {
@@ -3357,6 +3357,15 @@ input[type="password"] {
 }
 
 #login--status {
+	margin-left: 10em;
+	margin-top: -7em;
+	border: 1px;
+	width: max-content;
+	padding: 10px;
+	background: black;
+}
+
+#register--status{
 	margin-left: 10em;
 	margin-top: -7em;
 	border: 1px;

@@ -1,5 +1,7 @@
 package com.bits.af.entities;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,13 +47,57 @@ public class Property {
 
 	@Column(name = "pty_unique")
 	private String propertyUniqueId;
-	
+
 	@Column(name = "pty_area")
 	private int propertyArea;
 
 	@Column(name = "pty_bed")
 	private int propertyBed;
 	
+	@Column(name = "pty_country")
+	private String propertyCountry;
+
+	public String getPropertyCountry() {
+		return propertyCountry;
+	}
+
+	public void setPropertyCountry(String propertyCountry) {
+		this.propertyCountry = propertyCountry;
+	}
+
+	@Column(name = "pty_zipcode")
+	private int propertyZipCode;
+
+	public int getPropertyZipCode() {
+		return propertyZipCode;
+	}
+
+	public void setPropertyZipCode(int propertyZipCode) {
+		this.propertyZipCode = propertyZipCode;
+	}
+
+	@Column(name = "pty_description")
+	private String propertyDescription;
+
+	public Date getPropertyAvailableDate() {
+		return propertyAvailableDate;
+	}
+
+	public void setPropertyAvailableDate(Date propertyAvailableDate) {
+		this.propertyAvailableDate = propertyAvailableDate;
+	}
+
+	@Column(name = "pty_available_date")
+	private Date propertyAvailableDate;
+
+	public String getPropertyDescription() {
+		return propertyDescription;
+	}
+
+	public void setPropertyDescription(String propertyDescription) {
+		this.propertyDescription = propertyDescription;
+	}
+
 	public int getPropertyArea() {
 		return propertyArea;
 	}
@@ -68,8 +114,6 @@ public class Property {
 		this.propertyBed = propertyBed;
 	}
 
-	
-
 	public int getPropertyId() {
 		return propertyId;
 	}
@@ -77,8 +121,6 @@ public class Property {
 	public void setPropertyId(int propertyId) {
 		this.propertyId = propertyId;
 	}
-
-	
 
 	public String getPropertyName() {
 		return propertyName;
