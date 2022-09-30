@@ -63,6 +63,14 @@ public class Customer {
 		return clientAddress;
 	}
 
+	public int getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
+	}
+
 	public void setClientAddress(String clientAddress) {
 		this.clientAddress = clientAddress;
 	}

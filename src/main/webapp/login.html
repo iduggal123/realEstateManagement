@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>EstateAgency Bootstrap Template - Index</title>
+<title>EstateAgency</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -64,7 +64,7 @@
 								<option>All Type</option>
 								<option>For Rent</option>
 								<option>For Sale</option>
-								<option>Open House</option>
+								<option>For Lease</option>
 							</select>
 						</div>
 					</div>
@@ -73,10 +73,6 @@
 							<label class="pb-2" for="city">City</label> <select
 								class="form-control form-select form-control-a" id="city">
 								<option>All City</option>
-								<option>Alabama</option>
-								<option>Arizona</option>
-								<option>California</option>
-								<option>Colorado</option>
 							</select>
 						</div>
 					</div>
@@ -91,38 +87,17 @@
 							</select>
 						</div>
 					</div>
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="garages">Garages</label> <select
-								class="form-control form-select form-control-a" id="garages">
-								<option>Any</option>
-								<option>01</option>
-								<option>02</option>
-								<option>03</option>
-								<option>04</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6 mb-2">
-						<div class="form-group mt-3">
-							<label class="pb-2" for="bathrooms">Bathrooms</label> <select
-								class="form-control form-select form-control-a" id="bathrooms">
-								<option>Any</option>
-								<option>01</option>
-								<option>02</option>
-								<option>03</option>
-							</select>
-						</div>
-					</div>
+
+
 					<div class="col-md-6 mb-2">
 						<div class="form-group mt-3">
 							<label class="pb-2" for="price">Min Price</label> <select
 								class="form-control form-select form-control-a" id="price">
-								<option>Unlimite</option>
-								<option>$50,000</option>
-								<option>$100,000</option>
-								<option>$150,000</option>
-								<option>$200,000</option>
+								<option>Unlimited</option>
+								<option>INR50,00000</option>
+								<option>INR100,00000</option>
+								<option>INR150,00000</option>
+								<option>INR200,00000</option>
 							</select>
 						</div>
 					</div>
@@ -146,37 +121,23 @@
 				aria-label="Toggle navigation">
 				<span></span> <span></span> <span></span>
 			</button>
-			<a class="navbar-brand text-brand" href="index.html">Estate<span
+			<a class="navbar-brand text-brand" href="list">Estate<span
 				class="color-b">Agency</span></a>
 
 			<div class="navbar-collapse collapse justify-content-center"
 				id="navbarDefault">
 				<ul class="navbar-nav">
 
-					<li class="nav-item"><a class="nav-link " href="index.html">Home</a>
-					</li>
-
-					<li class="nav-item"><a class="nav-link " href="about.html">About</a>
-					</li>
-
 					<li class="nav-item"><a class="nav-link active"
-						href="property-grid.html">Property</a></li>
+						href="register">Add a Property</a></li>
 
-					<li class="nav-item"><a class="nav-link "
-						href="blog-grid.html">Blog</a></li>
+					<li class="nav-item"><a class="nav-link active" href="list">My
+							Property</a></li>
 
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Pages</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item " href="property-single.html">Property
-								Single</a> <a class="dropdown-item " href="blog-single.html">Blog
-								Single</a> <a class="dropdown-item " href="agents-grid.html">Agents
-								Grid</a> <a class="dropdown-item " href="agent-single.html">Agent
-								Single</a>
-						</div></li>
-					<li class="nav-item"><a class="nav-link " href="contact.html">Contact</a>
+
+					<li class="nav-item"><a class="nav-link " href="login">Login</a>
+					</li>
+					<li class="nav-item"><a class="nav-link " href="signup">Signup</a>
 					</li>
 				</ul>
 			</div>
@@ -189,7 +150,6 @@
 
 		</div>
 	</nav>
-	<!-- End Header/Navbar -->
 
 	<main id="main">
 
@@ -199,18 +159,17 @@
 		<section class="property-grid grid">
 			<div class="container">
 				<div class="zf-templateWidth">
-					<form
-						action='#'
-						name='form' method='POST'
+					<form action='#' name='form' method='POST'
 						onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
-						accept-charset='UTF-8' enctype='multipart/form-data' id='form'>
+						accept-charset='UTF-8' enctype='multipart/form-data'
+						id='loginform'>
 						<input type="hidden" name="zf_referrer_name" value="">
 						<!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
 						<input type="hidden" name="zf_redirect_url" value="">
 						<!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->
 						<input type="hidden" name="zc_gad" value="">
 						<!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
-						<div class="zf-templateWrapper" style="margin:30% auto">
+						<div class="zf-templateWrapper" style="margin: 30% auto">
 							<!---------template Header Ends Here---------->
 							<!---------template Container Starts Here---------->
 							<div class="zf-subContWrap zf-topAlign">
@@ -221,7 +180,7 @@
 									</label>
 										<div class="zf-tempContDiv">
 											<span> <input fieldType=9 type="text" maxlength="255"
-												name="Email" checktype="c5" value=""
+												id="user--address" name="Email" checktype="c5" value=""
 												placeholder="Enter Email&#x20;Address" /></span>
 											<p id="Email_error" class="zf-errorMessage"
 												style="display: none;">Invalid value</p>
@@ -230,11 +189,13 @@
 									<!---------Email Ends Here---------->
 									<!---------Email Starts Here---------->
 									<li class="zf-tempFrmWrapper zf-large"><label
-										class="zf-labelName"> Password <em class="zf-important">*</em>
+										class="zf-labelName"> Password <em
+											class="zf-important">*</em>
 									</label>
 										<div class="zf-tempContDiv">
-											<span> <input  type="password" maxlength="255" style="width:100%"
-												name="Email1"  value="" placeholder="Enter Password" /></span>
+											<span> <input type="password" maxlength="255"
+												style="width: 100%" name="Email1" value=""
+												placeholder="Enter Password" id="user--password" /></span>
 											<p id="Email1_error" class="zf-errorMessage"
 												style="display: none;">Invalid value</p>
 										</div>
@@ -244,7 +205,12 @@
 							</div>
 							<!---------template Container Starts Here---------->
 							<ul>
-								<li class="zf-fmFooter"><button class="zf-submitColor">Login</button></li>
+								<li class="zf-fmFooter"><button class="zf-submitColor"
+										id="loginButton">Login</button></li>
+								<li class="zf-fmFooter">
+									<h1 id="login--status" class="badge" style="display: none">Logging
+										in...</h1>
+								</li>
 							</ul>
 						</div>
 						<!-- 'zf-templateWrapper' ends -->
@@ -267,7 +233,7 @@
 	<!-- End #main -->
 
 
-	<div id="preloader"></div>
+	<!-- <div id="preloader"></div> -->
 	<a href="#"
 		class="back-to-top d-flex align-items-center justify-content-center"><i
 		class="bi bi-arrow-up-short"></i></a>
@@ -278,8 +244,11 @@
 	<script src="assets/vendor/php-email-form/validate.js"></script>
 
 	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/utils.js"></script>
 	<script src="assets/js/validation.js"></script>
+	<script src="assets/js/base64.js"></script>
+	<script src="assets/js/user.js"></script>
 </body>
 
 </html>

@@ -16,14 +16,6 @@ public class Property {
 	@Column(name = "pty_name")
 	private String propertyName;
 
-	public int getPropertyId() {
-		return propertyId;
-	}
-
-	public void setPropertyId(int propertyId) {
-		this.propertyId = propertyId;
-	}
-
 	@Column(name = "pty_town")
 	private String propertyTown;
 
@@ -53,6 +45,40 @@ public class Property {
 
 	@Column(name = "pty_unique")
 	private String propertyUniqueId;
+	
+	@Column(name = "pty_area")
+	private int propertyArea;
+
+	@Column(name = "pty_bed")
+	private int propertyBed;
+	
+	public int getPropertyArea() {
+		return propertyArea;
+	}
+
+	public void setPropertyArea(int propertyArea) {
+		this.propertyArea = propertyArea;
+	}
+
+	public int getPropertyBed() {
+		return propertyBed;
+	}
+
+	public void setPropertyBed(int propertyBed) {
+		this.propertyBed = propertyBed;
+	}
+
+	
+
+	public int getPropertyId() {
+		return propertyId;
+	}
+
+	public void setPropertyId(int propertyId) {
+		this.propertyId = propertyId;
+	}
+
+	
 
 	public String getPropertyName() {
 		return propertyName;
