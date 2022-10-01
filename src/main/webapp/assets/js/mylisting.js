@@ -9,8 +9,9 @@ $(document).ready(function() {
 
 
 
-function listHelper() {
-	var url = "/property";
+function mylisting() {
+	var ownerId = getUserId();
+	var url = "/property/owner/"+ownerId;
 	var promise = httpGetAsync(url);
 	var currentIndex = 1;
 	promise.then(function(response) {
@@ -41,4 +42,8 @@ function listHelper() {
 	});
 }
 
-listHelper();
+
+
+$(document).ready(function() {
+	mylisting();
+});
