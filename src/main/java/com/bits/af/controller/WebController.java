@@ -9,7 +9,7 @@ public class WebController {
 	@RequestMapping("home")
 	public String home() {
 
-		return "index.html";
+		return "home.html";
 	}
 
 	@RequestMapping("login")

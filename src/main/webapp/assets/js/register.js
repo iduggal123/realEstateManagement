@@ -3,6 +3,11 @@ $('#registerationFrom').submit(function() {
 	return false;
 });
 
+$(document).ready(function() {
+	console.log('Checking if this is active session!')
+	isUserLoggedIn();
+});
+
 
 function addProperty() {
 
@@ -51,7 +56,7 @@ function addProperty() {
 			if (response.errorCode == 0) {
 				window.setTimeout(function() {
 					status.innerHTML = "Property is registered successfully."
-					
+
 				}, 1000);
 			} else {
 

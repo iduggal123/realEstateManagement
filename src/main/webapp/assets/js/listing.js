@@ -1,3 +1,12 @@
+$(document).ready(function() {
+	var currentPath = $(location).attr('pathname');
+	if (!currentPath.includes('home')) {
+		console.log('Checking if this is active session!')
+		isUserLoggedIn();
+	}
+});
+
+
 function listHelper() {
 	var url = "/property";
 	var promise = httpGetAsync(url);

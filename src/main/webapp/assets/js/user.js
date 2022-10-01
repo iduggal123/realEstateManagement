@@ -9,6 +9,16 @@ $('#loginform').submit(function() {
 	return false;
 });
 
+$('#user--logout').click(function() {
+	logout();
+	return false;
+});
+
+function logout() {
+	//in case of logout, just delete the cookie and reditect to login page as it is just an assignment.
+	deleteCookie('userinfo');
+	window.location.href = "login";
+}
 
 
 function signup() {

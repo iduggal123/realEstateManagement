@@ -135,13 +135,35 @@ function getCookieValue(a) {
 }
 
 function getUserId() {
-	var t = getCookieValue('userinfo');
-	t = t.split(/####/g);
-	return t[1];
+	try {
+		var t = getCookieValue('userinfo');
+		t = t.split(/####/g);
+		if (t[1] == undefined) {
+			throw exception();
+		}
+		return t[1];
+	} catch (e) {
+		return undefined;
+	}
 }
 
 function getUserEmailAddress() {
-	var t = getCookieValue('userinfo');
-	t = t.split(/####/g);
-	return t[0];
+	try {
+		var t = getCookieValue('userinfo');
+		t = t.split(/####/g);
+		if (t[0] == '') {
+			throw exception();
+		}
+		return t[0];
+	} catch (e) {
+		return undefined;
+	}
+}
+
+function isUserLoggedIn() {
+	var emailAddress = getUserEmailAddress();
+	if (emailAddress == undefined) {
+		alert('Please login and proceed. Redirecting!')
+		window.location.href = "login";
+	}
 }
