@@ -3373,3 +3373,12 @@ input[type="password"] {
 	padding: 10px;
 	background: black;
 }
+
+#no--message{
+	margin:30%;
+	border: 1px;
+	width: max-content;
+	padding: 10px;
+	background: red;
+	color:white;
+}

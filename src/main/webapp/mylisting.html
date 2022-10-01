@@ -109,7 +109,7 @@
 		</div>
 	</div>
 	<!-- End Property Search Section -->
-	>
+
 
 	<!-- ======= Header/Navbar ======= -->
 	<nav
@@ -132,7 +132,7 @@
 						href="register">Add a Property</a></li>
 
 					<li class="nav-item"><a id="my--property"
-						class="nav-link active" href="#">My Property</a></li>
+						class="nav-link active" href="#">My Listing</a></li>
 
 
 					<li class="nav-item"><a id='user--logout' class="nav-link "
@@ -187,7 +187,8 @@
 										<div class="price-box d-flex">
 											<span class="property--price price-a"></span>
 										</div>
-										<a href="property-single.html" class="link-a badge"
+										<a href="#" class="delete--listing link-a badge"
+											onclick='deleteListing(this);return false;'
 											style="background: red">Delete</a>
 									</div>
 									<div class="card-footer-a">
@@ -220,6 +221,28 @@
 	</main>
 	<!-- End #main -->
 
+	<!-- Modal -->
+	<div class="modal fade" id="delete--confirm--modal" tabindex="-1"
+		aria-labelledby="delete--confirm--modal--label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="delete--confirm--modal--label">Delete
+						confirmation</h5>
+					<button type="button" class="close" data-bs-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">Do you want to delete the listing?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" id='delete--confirm--button'>Confirm</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div id="preloader"></div>
 	<a href="#"
@@ -237,7 +260,7 @@
 	<script src="assets/js/utils.js"></script>
 	<script src="assets/js/user.js"></script>
 	<script src="assets/js/mylisting.js"></script>
-	
+
 
 </body>
 
