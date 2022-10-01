@@ -38,6 +38,12 @@ public class PropertyController {
 		return ResponseEntity.ok(propertyInfo);
 	}
 
+	@GetMapping(path = "/owner/{propertyOwnerId}", produces = "application/json")
+	public ResponseEntity<List<Property>> findByPropertyOwner(@PathVariable Integer propertyOwnerId) {
+		List<Property> properties = propertyRepo.findBypropertyOwnerId(propertyOwnerId);
+		return new ResponseEntity<>(properties, HttpStatus.OK);
+	}
+
 	@GetMapping(path = "/{id}", produces = "application/json")
 	public ResponseEntity<Property> listById(@PathVariable Integer id) {
 		Optional<Property> properties = propertyRepo.findById(id);
