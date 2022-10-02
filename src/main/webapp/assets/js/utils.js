@@ -5,6 +5,14 @@ function httpGet(url) {
 	return xmlHttp.responseText;
 }
 
+function httpDelete(url) {
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("DELETE", url, false); // false for synchronous request
+	xmlHttp.send(null);
+	return xmlHttp.responseText;
+}
+
+
 function createCookie(cookieName, cookieValue, daysToExpire, path) {
 	var date = new Date();
 	date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
@@ -64,6 +72,31 @@ httpGetAsync = async (url, nJson) => {
 	var data;
 	const settings = {
 		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		}
+	};
+	try {
+		const fetchResponse = await fetch(url);
+		if (nJson)
+			data = await fetchResponse.json();
+		else
+			data = await fetchResponse.text();
+
+		console.log(data);
+		return data;
+	} catch (e) {
+		console.log(e);
+		return e;
+	}
+}
+
+httpDeleteAsync = async (url, nJson) => {
+	alert('This is delete call!');
+	var data;
+	const settings = {
+		method: 'DELETE',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
