@@ -89,6 +89,7 @@ public class BookController {
 	
 	@SuppressWarnings("rawtypes")
 	@PutMapping(produces = "application/json", consumes = "application/json")
+	@Transactional
 	public ResponseEntity updateBooking(@RequestBody BookingRequest bookingRequest) throws Exception {
 
 		try {

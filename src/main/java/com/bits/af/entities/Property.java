@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "property")
+@Entity
+@Table(name = "property")
 public class Property {
 
 	@Id
@@ -48,13 +50,13 @@ public class Property {
 
 	@Column(name = "pty_unique")
 	private String propertyUniqueId;
-
+	
 	@Column(name = "pty_area")
 	private Integer propertyArea;
 
 	@Column(name = "pty_bed")
 	private Integer propertyBed;
-	
+
 	@Column(name = "pty_country")
 	private String propertyCountry;
 
