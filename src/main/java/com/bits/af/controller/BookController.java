@@ -61,17 +61,21 @@ public class BookController {
 	@SuppressWarnings("rawtypes")
 	@PostMapping(produces = "application/json", consumes = "application/json")
 	public ResponseEntity addBooking(@RequestBody BookingRequest bookingRequest) throws Exception {
-
 		Booking book = new Booking();
 		BeanUtils.copyProperties(bookingRequest, book);
 		try {
-			System.out.println(bookingRequest.getBookingId() + " "+ bookingRequest.getBookingStatus() + " "+ bookingRequest.getClientId() + " "+ bookingRequest.getPropertyId());
-			book = bookRepo.save(book);
+			
 			Optional<Property> property = propertyRepo.findById(book.getPropertyId());
-			if(property.isPresent()) {
+			if(property.isPresent() && !property.get().getPropertyStatus().equals("B")) {
 				property.get().setPropertyStatus("B");
 				propertyRepo.save(property.get());
+			}else if(property.get().getPropertyStatus().equals("B")) {
+				throw new Exception("This property is already booked");
+			}else {
+				throw new Exception("Could not find property");
 			}
+			System.out.println(bookingRequest.getBookingId() + " "+ bookingRequest.getBookingStatus() + " "+ bookingRequest.getClientId() + " "+ bookingRequest.getPropertyId());
+			book = bookRepo.save(book);
 			Transaction transaction = new Transaction();
 			transaction.setBookingId(book.getBookingId());
 			transaction.setClientId(book.getClientId());

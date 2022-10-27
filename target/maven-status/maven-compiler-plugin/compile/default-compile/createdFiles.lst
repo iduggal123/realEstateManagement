@@ -10,6 +10,7 @@ com/bits/af/controller/WebController.class
 com/bits/af/repository/BookRepository.class
 com/bits/af/pojo/TransactionRequest.class
 com/bits/af/entities/Customer.class
+com/bits/af/pojo/PropertyRequest.class
 com/bits/af/entities/Transaction.class
 com/bits/af/repository/TransactionRepository.class
 com/bits/af/repository/PropertyRepository.class

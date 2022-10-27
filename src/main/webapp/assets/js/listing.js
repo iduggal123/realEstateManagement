@@ -4,10 +4,36 @@ $(document).ready(function() {
 		console.log('Checking if this is active session!')
 		isUserLoggedIn();
 	}
+	$("#base--element").each(function () {
+            var i = $(this).attr('id');
+            alert(i);
+        });
 });
 
+function book(propertyId, book_btn){
+	var params = {};
+	params.propertyId = propertyId;
+	params.clientId = getUserId();
+	params.bookingStatus = "O";
+	
+	var url = "/bookings/";
+	setTimeout(function() {
+		response = httpPost(url, params, true);
+		console.log(response)
+		if (response.errorCode == 0) {
+				window.setTimeout(function() {
+					alert("Booking done successfully")
+					//book_btn.innerHTML = "Booked"
 
+				}, 1000);
+			} else {
 
+				window.setTimeout(function() {
+					alert(response.error);
+
+				}, 1000);
+			}
+}); }
 
 function listHelper() {
 	var url = "/property";
@@ -33,9 +59,17 @@ function listHelper() {
 				area.innerHTML = currentData.propertyArea + "ft <sup>2</sup>";
 				price.innerHTML = currentData.propertyCategory + " | " + currentData.propertyType + " | INR " + formatNumber(currentData.propertyPrice);
 				bed.innerHTML = currentData.propertyBed;
-
 				childElement.setAttribute('style', 'display:block');
+				var book_btn = childElement.getElementsByClassName("link-a badge");
+				childElement.addEventListener("click", function(){
+					book(currentData.propertyId, book_btn);
+				});
+				if(currentData.propertyStatus === 'B'){
+					$(book_btn).html('Booked');
+					$(book_btn).attr('disabled', true);
+				}
 				currentIndex = currentIndex + 1;
+
 			});
 
 	});
