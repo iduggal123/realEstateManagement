@@ -4,10 +4,6 @@ $(document).ready(function() {
 		console.log('Checking if this is active session!')
 		isUserLoggedIn();
 	}
-	$("#base--element").each(function () {
-            var i = $(this).attr('id');
-            alert(i);
-        });
 });
 
 function book(propertyId, book_btn){
